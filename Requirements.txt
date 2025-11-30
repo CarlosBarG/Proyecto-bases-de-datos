@@ -1,2 +1,2 @@
-Django == 5.1
-
+Django == 5.1.1
+oracledb == 2.5.0
