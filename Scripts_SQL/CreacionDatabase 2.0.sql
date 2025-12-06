@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      ORACLE Version 12c                           */
-/* Created on:     5/12/2025 6:46:47 p. m.                      */
+/* Created on:     5/12/2025 9:18:41 p. m.                      */
 /*==============================================================*/
 
 
@@ -34,11 +34,11 @@ alter table ESPECIA_ETAPA
 alter table ESPECIA_ETAPA
    drop constraint FK_ESPECIA__I___E_E_INSTANCI;
 
-alter table ESP___A
-   drop constraint FK_ESP___A_ESP___A_ESPECIAL;
+alter table ESP___ABOGADO
+   drop constraint FK_ESP___AB_ESP___ABO_ESPECIAL;
 
-alter table ESP___A
-   drop constraint FK_ESP___A_ESP___A2_ABOGADO;
+alter table ESP___ABOGADO
+   drop constraint FK_ESP___AB_ESP___ABO_ABOGADO;
 
 alter table EXPEDIENTE
    drop constraint FK_EXPEDIEN_C___E_CASO;
@@ -111,7 +111,7 @@ drop index ESP___A2_FK;
 
 drop index ESP___A_FK;
 
-drop table ESP___A cascade constraints;
+drop table ESP___ABOGADO cascade constraints;
 
 drop table ETAPAPROCESAL cascade constraints;
 
@@ -317,25 +317,25 @@ create index ESP___E_E_FK on ESPECIA_ETAPA (
 );
 
 /*==============================================================*/
-/* Table: ESP___A                                               */
+/* Table: ESP___ABOGADO                                         */
 /*==============================================================*/
-create table ESP___A (
+create table ESP___ABOGADO (
    CODESPECIALIZACION   CHAR(3)               not null,
    CEDULA               CHAR(10)              not null,
-   constraint PK_ESP___A primary key (CODESPECIALIZACION, CEDULA)
+   constraint PK_ESP___ABOGADO primary key (CODESPECIALIZACION, CEDULA)
 );
 
 /*==============================================================*/
 /* Index: ESP___A_FK                                            */
 /*==============================================================*/
-create index ESP___A_FK on ESP___A (
+create index ESP___A_FK on ESP___ABOGADO (
    CODESPECIALIZACION ASC
 );
 
 /*==============================================================*/
 /* Index: ESP___A2_FK                                           */
 /*==============================================================*/
-create index ESP___A2_FK on ESP___A (
+create index ESP___A2_FK on ESP___ABOGADO (
    CEDULA ASC
 );
 
@@ -602,12 +602,12 @@ alter table ESPECIA_ETAPA
    add constraint FK_ESPECIA__I___E_E_INSTANCI foreign key (NINSTANCIA)
       references INSTANCIA (NINSTANCIA);
 
-alter table ESP___A
-   add constraint FK_ESP___A_ESP___A_ESPECIAL foreign key (CODESPECIALIZACION)
+alter table ESP___ABOGADO
+   add constraint FK_ESP___AB_ESP___ABO_ESPECIAL foreign key (CODESPECIALIZACION)
       references ESPECIALIZACION (CODESPECIALIZACION);
 
-alter table ESP___A
-   add constraint FK_ESP___A_ESP___A2_ABOGADO foreign key (CEDULA)
+alter table ESP___ABOGADO
+   add constraint FK_ESP___AB_ESP___ABO_ABOGADO foreign key (CEDULA)
       references ABOGADO (CEDULA);
 
 alter table EXPEDIENTE
