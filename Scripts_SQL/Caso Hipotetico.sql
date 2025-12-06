@@ -1,7 +1,7 @@
 -- 2.6 Caso Hipotetico
 
 -- Cliente
-INSERT INTO CLIENTE VALUES ('00010','CC', 'Juan','Perez',2512354154);
+INSERT INTO CLIENTE VALUES ('00010','CC', 'Juan','Perez','2512354154');
 
 -- Ciudad
 -- en este caso no se inserta la ciudad de Bogota porque ya existen en la base de datos, debido a que en el punto 2.5 se nos solicito crear varios lugares,
