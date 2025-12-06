@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      ORACLE Version 12c                           */
-/* Created on:     29/11/2025 4:06:52 p.ï¿½m.                     */
+/* Created on:     5/12/2025 6:46:47 p. m.                      */
 /*==============================================================*/
 
 
@@ -34,11 +34,11 @@ alter table ESPECIA_ETAPA
 alter table ESPECIA_ETAPA
    drop constraint FK_ESPECIA__I___E_E_INSTANCI;
 
-alter table ESP___ABOGADO
-   drop constraint FK_ESP___AB_ESP___A_ABOGADO;
+alter table ESP___A
+   drop constraint FK_ESP___A_ESP___A_ESPECIAL;
 
-alter table ESP___ABOGADO
-   drop constraint FK_ESP___AB_ESP___A2_ESPECIAL;
+alter table ESP___A
+   drop constraint FK_ESP___A_ESP___A2_ABOGADO;
 
 alter table EXPEDIENTE
    drop constraint FK_EXPEDIEN_C___E_CASO;
@@ -69,9 +69,6 @@ alter table PAGO
 
 alter table RESULTADO
    drop constraint FK_RESULTAD_E___R_EXPEDIEN;
-
-alter table RESULTADO
-   drop constraint FK_RESULTAD_RELATIONS_CASO;
 
 alter table SUCESO
    drop constraint FK_SUCESO_E___S_EXPEDIEN;
@@ -114,7 +111,7 @@ drop index ESP___A2_FK;
 
 drop index ESP___A_FK;
 
-drop table ESP___ABOGADO cascade constraints;
+drop table ESP___A cascade constraints;
 
 drop table ETAPAPROCESAL cascade constraints;
 
@@ -150,8 +147,6 @@ drop index FP___P_FK;
 
 drop table PAGO cascade constraints;
 
-drop index RELATIONSHIP_22_FK;
-
 drop index E___R_FK;
 
 drop table RESULTADO cascade constraints;
@@ -182,8 +177,8 @@ create table ABOGADO (
 /*==============================================================*/
 create table CASO (
    NOCASO               NUMBER(5,0)           not null,
-   CODCLIENTE           CHAR(5)               not null,
    CODESPECIALIZACION   CHAR(3)               not null,
+   CODCLIENTE           CHAR(5)               not null,
    FECHAINICIO          DATE                  not null,
    FECHAFIN             DATE,
    VALOR                CHAR(10)              not null,
@@ -253,22 +248,22 @@ create index CL___C_FK on CONTACTO (
 /* Table: DOCUMENTO                                             */
 /*==============================================================*/
 create table DOCUMENTO (
+   NOCASO               NUMBER(5,0)           not null,
    CODESPECIALIZACION   CHAR(3)               not null,
    PASOETAPA            NUMBER(2,0)           not null,
-   NOCASO               NUMBER(5,0)           not null,
    CONSECEXPE           NUMBER(4,0)           not null,
    CONDOC               NUMBER(4,0)           not null,
    UBICADOC             CHAR(50)              not null,
-   constraint PK_DOCUMENTO primary key (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONDOC)
+   constraint PK_DOCUMENTO primary key (NOCASO, CODESPECIALIZACION, PASOETAPA, CONSECEXPE, CONDOC)
 );
 
 /*==============================================================*/
 /* Index: E___D_FK                                              */
 /*==============================================================*/
 create index E___D_FK on DOCUMENTO (
+   NOCASO ASC,
    CODESPECIALIZACION ASC,
    PASOETAPA ASC,
-   NOCASO ASC,
    CONSECEXPE ASC
 );
 
@@ -287,9 +282,9 @@ create table ESPECIALIZACION (
 create table ESPECIA_ETAPA (
    CODESPECIALIZACION   CHAR(3)               not null,
    PASOETAPA            NUMBER(2,0)           not null,
-   NINSTANCIA           NUMBER(1,0),
    CODETAPA             CHAR(3)               not null,
    IDIMPUGNA            CHAR(2),
+   NINSTANCIA           NUMBER(1,0),
    constraint PK_ESPECIA_ETAPA primary key (CODESPECIALIZACION, PASOETAPA)
 );
 
@@ -322,26 +317,26 @@ create index ESP___E_E_FK on ESPECIA_ETAPA (
 );
 
 /*==============================================================*/
-/* Table: ESP___ABOGADO                                         */
+/* Table: ESP___A                                               */
 /*==============================================================*/
-create table ESP___ABOGADO (
-   CEDULA               CHAR(10)              not null,
+create table ESP___A (
    CODESPECIALIZACION   CHAR(3)               not null,
-   constraint PK_ESP___ABOGADO primary key (CEDULA, CODESPECIALIZACION)
+   CEDULA               CHAR(10)              not null,
+   constraint PK_ESP___A primary key (CODESPECIALIZACION, CEDULA)
 );
 
 /*==============================================================*/
 /* Index: ESP___A_FK                                            */
 /*==============================================================*/
-create index ESP___A_FK on ESP___ABOGADO (
-   CEDULA ASC
+create index ESP___A_FK on ESP___A (
+   CODESPECIALIZACION ASC
 );
 
 /*==============================================================*/
 /* Index: ESP___A2_FK                                           */
 /*==============================================================*/
-create index ESP___A2_FK on ESP___ABOGADO (
-   CODESPECIALIZACION ASC
+create index ESP___A2_FK on ESP___A (
+   CEDULA ASC
 );
 
 /*==============================================================*/
@@ -357,14 +352,14 @@ create table ETAPAPROCESAL (
 /* Table: EXPEDIENTE                                            */
 /*==============================================================*/
 create table EXPEDIENTE (
+   NOCASO               NUMBER(5,0)           not null,
    CODESPECIALIZACION   CHAR(3)               not null,
    PASOETAPA            NUMBER(2,0)           not null,
-   NOCASO               NUMBER(5,0)           not null,
    CONSECEXPE           NUMBER(4,0)           not null,
-   CODLUGAR             CHAR(5)               not null,
    CEDULA               CHAR(10),
+   CODLUGAR             CHAR(5)               not null,
    FECHAETAPA           DATE                  not null,
-   constraint PK_EXPEDIENTE primary key (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE)
+   constraint PK_EXPEDIENTE primary key (NOCASO, CODESPECIALIZACION, PASOETAPA, CONSECEXPE)
 );
 
 /*==============================================================*/
@@ -498,53 +493,45 @@ create index RELATIONSHIP_23_FK on PAGO (
 /* Table: RESULTADO                                             */
 /*==============================================================*/
 create table RESULTADO (
+   NOCASO               NUMBER(5,0)           not null,
    CODESPECIALIZACION   CHAR(3)               not null,
    PASOETAPA            NUMBER(2,0)           not null,
-   NOCASO               NUMBER(5,0)           not null,
    CONSECEXPE           NUMBER(4,0)           not null,
    CONRESUL             NUMBER(4,0)           not null,
-   CAS_NOCASO           NUMBER(5,0)           not null,
    DESCRESUL            CHAR(200)             not null,
-   constraint PK_RESULTADO primary key (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONRESUL)
+   constraint PK_RESULTADO primary key (NOCASO, CODESPECIALIZACION, PASOETAPA, CONSECEXPE, CONRESUL)
 );
 
 /*==============================================================*/
 /* Index: E___R_FK                                              */
 /*==============================================================*/
 create index E___R_FK on RESULTADO (
+   NOCASO ASC,
    CODESPECIALIZACION ASC,
    PASOETAPA ASC,
-   NOCASO ASC,
    CONSECEXPE ASC
-);
-
-/*==============================================================*/
-/* Index: RELATIONSHIP_22_FK                                    */
-/*==============================================================*/
-create index RELATIONSHIP_22_FK on RESULTADO (
-   CAS_NOCASO ASC
 );
 
 /*==============================================================*/
 /* Table: SUCESO                                                */
 /*==============================================================*/
 create table SUCESO (
+   NOCASO               NUMBER(5,0)           not null,
    CODESPECIALIZACION   CHAR(3)               not null,
    PASOETAPA            NUMBER(2,0)           not null,
-   NOCASO               NUMBER(5,0)           not null,
    CONSECEXPE           NUMBER(4,0)           not null,
    CONSUCESO            NUMBER(4,0)           not null,
    DESCSUCESO           CHAR(200)             not null,
-   constraint PK_SUCESO primary key (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONSUCESO)
+   constraint PK_SUCESO primary key (NOCASO, CODESPECIALIZACION, PASOETAPA, CONSECEXPE, CONSUCESO)
 );
 
 /*==============================================================*/
 /* Index: E___S_FK                                              */
 /*==============================================================*/
 create index E___S_FK on SUCESO (
+   NOCASO ASC,
    CODESPECIALIZACION ASC,
    PASOETAPA ASC,
-   NOCASO ASC,
    CONSECEXPE ASC
 );
 
@@ -596,8 +583,8 @@ alter table CONTACTO
       references TIPOCONTACT (IDTIPOCONTA);
 
 alter table DOCUMENTO
-   add constraint FK_DOCUMENT_E___D_EXPEDIEN foreign key (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE)
-      references EXPEDIENTE (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE);
+   add constraint FK_DOCUMENT_E___D_EXPEDIEN foreign key (NOCASO, CODESPECIALIZACION, PASOETAPA, CONSECEXPE)
+      references EXPEDIENTE (NOCASO, CODESPECIALIZACION, PASOETAPA, CONSECEXPE);
 
 alter table ESPECIA_ETAPA
    add constraint FK_ESPECIA__ESP___E_E_ESPECIAL foreign key (CODESPECIALIZACION)
@@ -615,13 +602,13 @@ alter table ESPECIA_ETAPA
    add constraint FK_ESPECIA__I___E_E_INSTANCI foreign key (NINSTANCIA)
       references INSTANCIA (NINSTANCIA);
 
-alter table ESP___ABOGADO
-   add constraint FK_ESP___AB_ESP___A_ABOGADO foreign key (CEDULA)
-      references ABOGADO (CEDULA);
-
-alter table ESP___ABOGADO
-   add constraint FK_ESP___AB_ESP___A2_ESPECIAL foreign key (CODESPECIALIZACION)
+alter table ESP___A
+   add constraint FK_ESP___A_ESP___A_ESPECIAL foreign key (CODESPECIALIZACION)
       references ESPECIALIZACION (CODESPECIALIZACION);
+
+alter table ESP___A
+   add constraint FK_ESP___A_ESP___A2_ABOGADO foreign key (CEDULA)
+      references ABOGADO (CEDULA);
 
 alter table EXPEDIENTE
    add constraint FK_EXPEDIEN_C___E_CASO foreign key (NOCASO)
@@ -660,14 +647,10 @@ alter table PAGO
       references CASO (NOCASO);
 
 alter table RESULTADO
-   add constraint FK_RESULTAD_E___R_EXPEDIEN foreign key (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE)
-      references EXPEDIENTE (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE);
-
-alter table RESULTADO
-   add constraint FK_RESULTAD_RELATIONS_CASO foreign key (CAS_NOCASO)
-      references CASO (NOCASO);
+   add constraint FK_RESULTAD_E___R_EXPEDIEN foreign key (NOCASO, CODESPECIALIZACION, PASOETAPA, CONSECEXPE)
+      references EXPEDIENTE (NOCASO, CODESPECIALIZACION, PASOETAPA, CONSECEXPE);
 
 alter table SUCESO
-   add constraint FK_SUCESO_E___S_EXPEDIEN foreign key (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE)
-      references EXPEDIENTE (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE);
+   add constraint FK_SUCESO_E___S_EXPEDIEN foreign key (NOCASO, CODESPECIALIZACION, PASOETAPA, CONSECEXPE)
+      references EXPEDIENTE (NOCASO, CODESPECIALIZACION, PASOETAPA, CONSECEXPE);
 
