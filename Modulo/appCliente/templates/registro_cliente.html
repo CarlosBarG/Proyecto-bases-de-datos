@@ -1,0 +1,76 @@
+<form method="POST">
+    {% csrf_token %}
+    <input type="text" id="id_codcliente" name="codcliente" placeholder="cod_cliente" required>
+    <input type="text" id="id_nomcliente" name="nomcliente" placeholder="nombre" required>
+    <input type="text" id="id_apellcliente" name="apellcliente" placeholder="apellido" required>
+    <input type="text" id="id_ndocumento" name="ndocumento" placeholder="num_doc" required>
+
+    <label for="idtipodoc">Tipo Documento</label>
+    <select id="id_idtipodoc" name="idtipodoc" required>
+        <option value="">Seleccione......</option>
+        {% for tipo in tipos_documento %}
+            <option value="{{ tipo.idtipodoc }}">{{ tipo.desctipodoc }}</option>
+        {% endfor %}
+    </select>
+
+    <button type="submit">Guardar</button>
+
+    <div style="display:flex; align-items:center; gap:10px;">
+        <input type="text" id="id_codcliente_buscar" name="codcliente_buscar" placeholder="Código a Buscar">
+
+        <button type="button" id="btnBuscar">
+            🔍
+        </button>
+    </div>  
+
+    <script>
+        document.getElementById("btnBuscar").addEventListener("click", function () {
+            const cod = document.getElementById("id_codcliente_buscar").value;
+
+            if (!cod) {
+                alert("Ingrese un código primero");
+                return;
+            }
+
+            fetch(`/clientes/buscar/?codcliente=${cod}`)
+                .then(res => res.json())
+                .then(json => {
+                    if (json.data === null) {
+                        alert("Cliente no encontrado");
+                        return;
+                    }
+
+                    document.getElementById("id_codcliente").value = json.data.codcliente;
+                    document.getElementById("id_idtipodoc").value = json.data.idtipodoc;
+                    document.getElementById("id_nomcliente").value = json.data.nomcliente;
+                    document.getElementById("id_apellcliente").value = json.data.apellcliente;
+                    document.getElementById("id_ndocumento").value = json.data.ndocumento;
+                })
+                .catch(err => console.error(err));
+        });
+    </script>
+
+    <div>
+        {% if error %}
+        <div class="alert alert-danger" id="msg-error">
+            {{ error }}
+        </div>
+        <script>
+            setTimeout(() => {
+                document.getElementById('msg-error').style.display = 'none';
+            }, 3000); // desaparece después de 3 segundos
+        </script>
+        {% endif %}
+
+        {% if success %}
+        <div class="alert alert-success" id="msg-success">
+            {{ success }}
+        </div>
+        <script>
+            setTimeout(() => {
+                document.getElementById('msg-success').style.display = 'none';
+            }, 3000); // desaparece después de 3 segundos
+        </script>
+        {% endif %}
+    </div>
+</form>

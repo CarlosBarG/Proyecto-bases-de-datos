@@ -77,7 +77,6 @@ DEBUG = os.environ.get("DEBUG", "True") == "True"
 
 DATABASES = {}
 
-
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
