@@ -3,3 +3,16 @@
 
 ## Ignore venv
 venv/
+
+## Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyc.cache
+*.pyo.cache
+*.pyd.cache
+*.pytest_cache/
+*.mypy_cache/
+*.pyre/
+*.tox/
