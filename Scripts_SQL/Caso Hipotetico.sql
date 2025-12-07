@@ -47,9 +47,9 @@ INSERT INTO RESULTADO VALUES (00010, 'PEN', 1, 6528, 0001, 'Con base en los suce
 
 
 -- Siguiente etapa Imputacion de cargos, se crea el expediente para esta etapa
-INSERT INTO LUGAR VALUES ('JUZG1','EJUD','BOG','JUZGADO 1','CL 45 #20', '523572', 'JUZGADO1@GMAIL.COM');  
+INSERT INTO LUGAR VALUES ('JUCG','JUZG','BOG','JUZGADO CONTROL','CL 45 #23', '52357576', 'JUZGADOCONTROL@GMAIL.COM');  
 -- se crea el expediente para la segunda etapa del Caso(Imputacion de cargos):
-INSERT INTO EXPEDIENTE VALUES (00010, 'PEN', 2, 6529, '1235468529', 'JUZG1',  TO_DATE('03/12/2010', 'DD/MM/YYYY')); 
+INSERT INTO EXPEDIENTE VALUES (00010, 'PEN', 2, 6529, '1235468529', 'JUCG',  TO_DATE('03/12/2010', 'DD/MM/YYYY')); 
 -- Sucesos de la segunda etapa del Caso(Imputacion de cargos):
 -- procesos entidad judicial
 INSERT INTO SUCESO VALUES (00010, 'PEN', 2, 6529, 0001, 'El fiscal presenta ante un Juez de control de garantías la imputación del delito de hurto agravado. Le comunica formalmente a Juan los cargos en su contra.');
@@ -62,10 +62,12 @@ INSERT INTO RESULTADO VALUES (00010, 'PEN', 2, 6529, 0001, 'Con base en los suce
 
 -- Siguiente etapa Acusacion, se crea el expediente para esta etapa:
 -- para crear el expediente se necesita el lugar donde se lleva a cabo la etapa, se crea el lugar:
--- No se que lugar xd
+
 
 -- se crea el expediente para la tercera etapa del Caso(Acusacion):
-INSERT INTO EXPEDIENTE VALUES (00010, 'PEN', 3, 6530, '1235468529', 'lugar',  TO_DATE('05/12/2010', 'DD/MM/YYYY'));
+INSERT INTO LUGAR VALUES ('JUCO', 'JUZG', 'BOG', 'JUZGADO DE CONOCIMIENTO', 'CL 50 #17', '5235573', 'JUZGADODECONOCIMIENTO@GMAIL.COM');
+
+INSERT INTO EXPEDIENTE VALUES (00010, 'PEN', 3, 6530, '1235468529', 'JUCO',  TO_DATE('05/12/2010', 'DD/MM/YYYY'));
 
 -- Sucesos de la tercera etapa del Caso(Acusacion):
 -- procesos entidad judicial
@@ -82,10 +84,9 @@ INSERT INTO SUCESO VALUES (00010, 'PEN', 3, 6530, 0005, 'El abogado solicita tes
 
 -- Siguiente etapa Juicio, se crea el expediente para esta etapa:
 -- para crear el expediente se necesita el lugar donde se lleva a cabo la etapa, se crea el lugar:
--- No se que lugar xd
 
 -- se crea el expediente para la cuarta etapa del Caso(Juicio):
-INSERT INTO EXPEDIENTE VALUES (00010, 'PEN', 4, 6531, '1235468529', 'lugar',  TO_DATE('10/12/2010', 'DD/MM/YYYY'));
+INSERT INTO EXPEDIENTE VALUES (00010, 'PEN', 4, 6531, '1235468529', 'JUCO',  TO_DATE('10/12/2010', 'DD/MM/YYYY'));
 
 -- Sucesos de la cuarta etapa del Caso(Juicio):
 INSERT INTO SUCESO VALUES (00010, 'PEN', 4, 6531, 0001, 'Se practican las pruebas, se escuchan testigos, peritos y alegatos finales. El juez evalúa los argumentos y dicta sentencia.');
@@ -98,13 +99,45 @@ INSERT INTO RESULTADO VALUES (00010, 'PEN', 4, 6531, 0001, 'Como resultado de la
 
 -- Siguiente etapa Impugnaciones
 -- para crear el expediente se necesita el lugar donde se lleva a cabo la etapa, se crea el lugar:
--- No se que lugar xd
 
 -- Impugnacion(Instancias judiciales)
--- se crea el expediente para la impugnacion
-INSERT INTO EXPEDIENTE VALUES (00010, 'PEN', 6, 6532, '1235468529', 'lugar',  TO_DATE('15/12/2010', 'DD/MM/YYYY'));
+
+
+
+
 
 -- Primer instancia de la impugnacion Sentencia
+
+-- Se crea el juzgado penal del circuito 
+
+INSERT INTO LUGAR VALUES ('JUPC','JUZG','BOG','JUZGADO PENAL DEL CIRCUITO','CL 55 #19', '5235599', 'JUZGADOPENALDELCIRCUITO@GMAIL.COM');
+-- se crea el expediente para la impugnacion
+INSERT INTO EXPEDIENTE VALUES (00010, 'PEN', 6, 6532, '1235468529', 'JUPC',  TO_DATE('15/12/2010', 'DD/MM/YYYY'));
+
 INSERT INTO SUCESO VALUES (00010, 'PEN', 6, 6532, 0001, 'La sentencia inicial la dicta el Juez Penal del Circuito (juez de conocimiento).');
 
--- Segunda instancia no se que hacer xd
+-- Segunda instancia de la impugnacion Apelacion
+-- Se crea el tribunal superior del distrito judicial
+
+INSERT INTO LUGAR VALUES ('TSDJ','TRIB','BOG','TRIBUNAL SUPERIOR DEL DISTRITO JUDICIAL','CL 60 #25', '5235600', 'TRIBUNALSUPERIORDISTRITOJUDICIAL@GMAIL.COM');
+
+INSERT INTO EXPEDIENTE VALUES (00010, 'PEN', 7, 6533, '1235468529', 'TSDJ',  TO_DATE('20/12/2010', 'DD/MM/YYYY'));
+
+INSERT INTO SUCESO VALUES (00010, 'PEN', 7, 6533, 0001, 'Si el abogado no está de acuerdo presenta recurso de apelación. El tribunal superior puede confirmar modificar o revocar la sentencia');
+
+-- Tercera instancia de la impugnacion Casación
+-- Se crea la corte suprema de justicia
+
+INSERT INTO LUGAR VALUES ('CSJ','TRIB','BOG','CORTE SUPREMA DE JUSTICIA','CL 70 #30', '5235610', 'CORTESUPREMAJUSTICIA@GMAIL.COM');
+
+INSERT INTO EXPEDIENTE VALUES (00010, 'PEN', 8, 6534, '1235468529', 'CSJ',  TO_DATE('22/12/2010', 'DD/MM/YYYY'));
+INSERT INTO SUCESO VALUES (00010, 'PEN', 8, 6534, 0001, ' Si persisten errores graves de derecho, el abogado puede interponer recurso extraordinario de casación ante la Corte Suprema');
+
+--- Cuarta instancia de la impugnacion Revisión
+
+INSERT INTO LUGAR VALUES ('CCJ','TRIB','BOG','CORTE CONSTITUCIONAL DE JUSTICIA','CL 80 #35', '5235620', 'CORTECONSTITUCIONALDEJUSTICIA@GMAIL.COM');
+
+INSERT INTO EXPEDIENTE VALUES (00010, 'PEN', 9, 6535, '1235468529', 'CCJ',  TO_DATE('24/12/2010', 'DD/MM/YYYY'));
+
+INSERT INTO SUCESO VALUES (00010, 'PEN', 9, 6535, 0001, 'Si hubo vulneración de derechos fundamentales, el abogado presenta una acción de tutela. La Corte Constitucional puede revisar el caso si lo selecciona para estudio');
+
