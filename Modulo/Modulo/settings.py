@@ -75,14 +75,7 @@ WSGI_APPLICATION = 'Modulo.wsgi.application'
 SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = os.environ.get("DEBUG", "True") == "True"
 
-DATABASES = {
-    "default": {
-        "ENGINE": os.environ.get("DB_ENGINE"),
-        "NAME": os.environ.get("DB_NAME"),
-        "USER": os.environ.get("DB_USER"),
-        "PASSWORD": os.environ.get("DB_PASSWORD"),
-    }
-}
+DATABASES = {}
 
 
 # Password validation
