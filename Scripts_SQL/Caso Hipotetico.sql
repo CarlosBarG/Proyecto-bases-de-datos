@@ -44,12 +44,14 @@ INSERT INTO SUCESO VALUES (00010, 'PEN', 1, 6528, 0002, 'El abogado defensor Ase
 
 --resultado de la indagacion
 INSERT INTO RESULTADO VALUES (00010, 'PEN', 1, 6528, 0001, 'Con base en los sucesos ocurridos durante la indagación, El resultado de la atapa es la apertura investigación');
-
+--Documentos etapa indagacion
+INSERT INTO DOCUMENTO VALUES (00010, 'PEN', 1, 6528, 0001, 'WWW.FISCALIA.GOV.CO/INVESTIGACION/EXP1235468529');
 
 -- Siguiente etapa Imputacion de cargos, se crea el expediente para esta etapa
 INSERT INTO LUGAR VALUES ('JUCG','JUZG','BOG','JUZGADO CONTROL','CL 45 #23', '52357576', 'JUZGADOCONTROL@GMAIL.COM');  
 -- se crea el expediente para la segunda etapa del Caso(Imputacion de cargos):
 INSERT INTO EXPEDIENTE VALUES (00010, 'PEN', 2, 6529, '1235468529', 'JUCG',  TO_DATE('03/12/2010', 'DD/MM/YYYY')); 
+
 -- Sucesos de la segunda etapa del Caso(Imputacion de cargos):
 -- procesos entidad judicial
 INSERT INTO SUCESO VALUES (00010, 'PEN', 2, 6529, 0001, 'El fiscal presenta ante un Juez de control de garantías la imputación del delito de hurto agravado. Le comunica formalmente a Juan los cargos en su contra.');
@@ -58,7 +60,9 @@ INSERT INTO SUCESO VALUES (00010, 'PEN', 2, 6529, 0002, 'El abogado acompaña a 
 
 --resultado de la imputacion de cargos
 INSERT INTO RESULTADO VALUES (00010, 'PEN', 2, 6529, 0001, 'Con base en los sucesos ocurridos, Como Resultado Juan no acepta cargos');
+-- Documentos etapa imputacion de cargos
 
+INSERT INTO DOCUMENTO VALUES (00010, 'PEN', 2, 6529, 0002, 'WWW.JUZGADOCONTROL.GOV.CO/IMPUTACION/EXP1235468529');
 
 -- Siguiente etapa Acusacion, se crea el expediente para esta etapa:
 -- para crear el expediente se necesita el lugar donde se lleva a cabo la etapa, se crea el lugar:
@@ -81,6 +85,9 @@ INSERT INTO SUCESO VALUES (00010, 'PEN', 3, 6530, 0004, 'El juez define cuáles 
 -- abogado defensor
 INSERT INTO SUCESO VALUES (00010, 'PEN', 3, 6530, 0005, 'El abogado solicita testigos y peritos que beneficien a Juan y pide que se excluyan pruebas obtenidas ilegalmente');
 
+-- Documentos etapa acusacion
+
+INSERT INTO DOCUMENTO VALUES (00010, 'PEN', 3, 6530, 0001, 'WWW.JUZGADODECONOCIMIENTO.GOV.CO/ACUSACION/EXP1235468529');
 
 -- Siguiente etapa Juicio, se crea el expediente para esta etapa:
 -- para crear el expediente se necesita el lugar donde se lleva a cabo la etapa, se crea el lugar:
@@ -96,6 +103,9 @@ INSERT INTO SUCESO VALUES (00010, 'PEN', 4, 6531, 0002, 'El abogado Interroga y 
 -- resultado del juicio
 INSERT INTO RESULTADO VALUES (00010, 'PEN', 4, 6531, 0001, 'Como resultado de la etapa sentencia absolutoria, si no se demuestra la culpabilidad o sentencia condenatoria, si se prueba el hurto más allá de toda duda razonable');
 
+-- Documentos etapa juicio
+
+INSERT INTO DOCUMENTO VALUES (00010, 'PEN', 4, 6531, 0001, 'WWW.JUZGADODECONOCIMIENTO.GOV.CO/JUICIO/EXP1235468529');
 
 -- Siguiente etapa Impugnaciones
 -- para crear el expediente se necesita el lugar donde se lleva a cabo la etapa, se crea el lugar:
