@@ -1,0 +1,4 @@
+sql_select_tipo_doc = """
+    SELECT IDTIPODOC, DESCTIPODOC
+    FROM TIPODOCUMENTO
+    ORDER BY IDTIPODOC"""
