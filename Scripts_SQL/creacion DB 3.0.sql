@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      ORACLE Version 12c                           */
-/* Created on:     6/12/2025 8:34:37 p.ï¿½m.                      */
+/* Created on:     6/12/2025 8:34:37 p. m.                      */
 /*==============================================================*/
 
 
@@ -226,9 +226,8 @@ create table CONTACTO (
    CONSECONTACTO        NUMBER(4,0)           not null,
    IDTIPOCONTA          VARCHAR2(3)           not null,
    VALORCONTACTO        VARCHAR2(50)          not null,
-   NOTIFICACION         NUMBER(1,0)           not null,
-   constraint PK_CONTACTO primary key (CODCLIENTE, CONSECONTACTO),
-   constraint CHK_NOTIFICACION check (NOTIFICACION IN (0, 1))
+   NOTIFICACION         SMALLINT              not null,
+   constraint PK_CONTACTO primary key (CODCLIENTE, CONSECONTACTO)
 );
 
 /*==============================================================*/
