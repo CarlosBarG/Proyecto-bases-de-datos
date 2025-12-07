@@ -37,7 +37,7 @@ VALUES (00010, '00010', 'PEN', TO_DATE('01/12/2010', 'DD/MM/YYYY'), TO_DATE('24/
 INSERT INTO TIPOLUGAR (IDTIPOLUGAR, DESCTIPOLUGAR) VALUES ('EJUD','Entidad Judicial');
 
 INSERT INTO LUGAR (CODLUGAR, IDTIPOLUGAR, LUG_CODLUGAR, NOMLUGAR, DIRELUGAR, TELLUGAR, EMAILLUGAR) 
-VALUES ('FGN', 'EJUD', 'BOGOT', 'Fiscalía General de la Nación', 'Ac. 24 #52-01', '018000912280', 'FiscaliaGeneral@entidadjudicialcolombia.com');
+VALUES ('FGN', 'EJUD', 'BOGOT', 'Fiscalía General Nación', 'Ac. 24 #52-01', '018000912280', 'FiscaliaGeneral@entidadjudicialcolombia.com');
 
 -- ============================================
 -- ETAPA 1: INDAGACION
@@ -50,11 +50,11 @@ VALUES ('PEN', 1, 00010, 6528, 'FGN', '1235468529', TO_DATE('01/12/2010', 'DD/MM
 -- Sucesos de la primer etapa del Caso(Indagacion):
 -- procesos de la fiscalia general de la nacion
 INSERT INTO SUCESO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONSUCESO, DESCSUCESO)  
-VALUES ('PEN', 1, 00010, 6528, 0001, 'La fiscalía general de la Nación recopila pruebas como declaraciones, cámaras de seguridad, y antecedentes. Se abre una carpeta de investigación.');
+VALUES ('PEN', 1, 00010, 6528, 0001, 'Fiscalía recopila pruebas y abre investigación.');
 
 -- procesos del abogado defensor
 INSERT INTO SUCESO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONSUCESO, DESCSUCESO) 
-VALUES ('PEN', 1, 00010, 6528, 0002, 'El abogado defensor Asesora a Juan Pérez sobre sus derechos y solicita la práctica de pruebas favorables (por ejemplo, testigos que confirmen que Juan no estaba en el lugar), verifica que la captura haya sido legal y que no se violen derechos fundamentales.');
+VALUES ('PEN', 1, 00010, 6528, 0002, 'Defensor asesora, solicita pruebas y verifica legalidad.');
 
 --resultado de la indagacion
 INSERT INTO RESULTADO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONRESUL, DESCRESUL) 
@@ -62,7 +62,7 @@ VALUES ('PEN', 1, 00010, 6528, 0001, 'El resultado de la etapa es la apertura in
 
 --Documentos etapa indagacion
 INSERT INTO DOCUMENTO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONDOC, UBICADOC) 
-VALUES ('PEN', 1, 00010, 6528, 0001, 'WWW.FISCALIA.GOV.CO/INVESTIGACION/EXP1235468529');
+VALUES ('PEN', 1, 00010, 6528, 0001, 'FISCALIA.GOV.CO/INVESTIGACION/EXP1235468529');
 
 
 -- ============================================
@@ -81,11 +81,11 @@ VALUES ('PEN', 2, 00010, 6529, 'JUCG', '1235468529', TO_DATE('03/12/2010', 'DD/M
 -- Sucesos de la segunda etapa del Caso(Imputacion de cargos):
 -- procesos entidad judicial
 INSERT INTO SUCESO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONSUCESO, DESCSUCESO)
-VALUES ('PEN', 2, 00010, 6529, 0001, 'El fiscal presenta ante un Juez de control de garantías la imputación del delito de hurto agravado. Le comunica formalmente a Juan los cargos en su contra.');
+VALUES ('PEN', 2, 00010, 6529, 0001, 'Fiscal imputa hurto agravado ante juez de control.');
 
 -- procesos del abogado defensor
 INSERT INTO SUCESO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONSUCESO, DESCSUCESO)
-VALUES ('PEN', 2, 00010, 6529, 0002, 'El abogado acompaña a Juan durante la audiencia, puede oponerse si considera que no hay pruebas o que el delito está mal tipificado y le explica a Juan las consecuencias de aceptar o no aceptar los cargos.');
+VALUES ('PEN', 2, 00010, 6529, 0002, 'Defensa acompaña y se opone por falta de pruebas.');
 
 --resultado de la imputacion de cargos
 INSERT INTO RESULTADO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONRESUL, DESCRESUL)
@@ -93,7 +93,7 @@ VALUES ('PEN', 2, 00010, 6529, 0001, 'Con base en los sucesos ocurridos, Como Re
 
 -- Documentos etapa imputacion de cargos
 INSERT INTO DOCUMENTO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONDOC, UBICADOC)
-VALUES ('PEN', 2, 00010, 6529, 0002, 'WWW.JUZGADOCONTROL.GOV.CO/IMPUTACION/EXP1235468529');
+VALUES ('PEN', 2, 00010, 6529, 0002, 'JUZG.CONTROL.GOV.CO/IMPUTACION/EXP1235468529');
 
 
 -- ============================================
@@ -112,23 +112,23 @@ VALUES ('PEN', 3, 00010, 6530, 'JUCO', '1235468529', TO_DATE('05/12/2010', 'DD/M
 -- Sucesos de la tercera etapa del Caso(Acusacion):
 -- procesos entidad judicial
 INSERT INTO SUCESO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONSUCESO, DESCSUCESO)
-VALUES ('PEN', 3, 00010, 6530, 0001, 'El fiscal presenta la acusación formal ante el Juez de conocimiento, indicando las pruebas que usará en juicio');
+VALUES ('PEN', 3, 00010, 6530, 0001, 'Fiscal presenta acusación y anuncia pruebas para juicio');
 
 -- procesos del abogado defensor
 INSERT INTO SUCESO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONSUCESO, DESCSUCESO)
-VALUES ('PEN', 3, 00010, 6530, 0002, 'El abogado examina las pruebas de la Fiscalía, solicita excluir pruebas ilegales o no pertinentes y prepara la defensa técnica para el juicio.');
+VALUES ('PEN', 3, 00010, 6530, 0002, 'Defensa examina y pide excluir pruebas ilegales.');
 
 -- presentacion de pruebas entidad judicial y abogado defensor
 INSERT INTO SUCESO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONSUCESO, DESCSUCESO)
-VALUES ('PEN', 3, 00010, 6530, 0003, 'Ambas partes (Fiscalía y defensa) presentan sus listas de pruebas, testigos y documentos.');
+VALUES ('PEN', 3, 00010, 6530, 0003, 'Partes presentan listas de pruebas y testigos.');
 
 -- decicion del juez
 INSERT INTO SUCESO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONSUCESO, DESCSUCESO)
-VALUES ('PEN', 3, 00010, 6530, 0004, 'El juez define cuáles se practicarán en el juicio');
+VALUES ('PEN', 3, 00010, 6530, 0004, 'Juez define pruebas a practicar en juicio.');
 
 -- abogado defensor
 INSERT INTO SUCESO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONSUCESO, DESCSUCESO)
-VALUES ('PEN', 3, 00010, 6530, 0005, 'El abogado solicita testigos y peritos que beneficien a Juan y pide que se excluyan pruebas obtenidas ilegalmente');
+VALUES ('PEN', 3, 00010, 6530, 0005, 'Defensa solicita testigos y exclusión de pruebas ilegales.');
 
 --resultado de la acusacion
 INSERT INTO RESULTADO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONRESUL, DESCRESUL)
@@ -136,7 +136,7 @@ VALUES ('PEN', 3, 00010, 6530, 0001, 'Se admite la acusación y se fijan las pru
 
 -- Documentos etapa acusacion
 INSERT INTO DOCUMENTO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONDOC, UBICADOC)
-VALUES ('PEN', 3, 00010, 6530, 0001, 'WWW.JUZGADODECONOCIMIENTO.GOV.CO/ACUSACION/EXP1235468529');
+VALUES ('PEN', 3, 00010, 6530, 0001, 'JUZG.CONOC.GOV.CO/ACUSACION/EXP1235468529');
 
 
 -- ============================================
@@ -152,11 +152,11 @@ VALUES ('PEN', 4, 00010, 6531, 'JUCO', '1235468529', TO_DATE('10/12/2010', 'DD/M
 
 -- Sucesos de la cuarta etapa del Caso(Juicio):
 INSERT INTO SUCESO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONSUCESO, DESCSUCESO)
-VALUES ('PEN', 4, 00010, 6531, 0001, 'Se practican las pruebas, se escuchan testigos, peritos y alegatos finales. El juez evalúa los argumentos y dicta sentencia.');
+VALUES ('PEN', 4, 00010, 6531, 0001, 'Se practican pruebas, testigos y alegatos; juez sentencia.');
 
 -- abogado defensor
 INSERT INTO SUCESO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONSUCESO, DESCSUCESO)
-VALUES ('PEN', 4, 00010, 6531, 0002, 'El abogado Interroga y contrainterroga testigos, presenta los argumentos de defensa, puede pedir la absolución por falta de pruebas o duda razonable.');
+VALUES ('PEN', 4, 00010, 6531, 0002, 'Defensa interroga y pide absolución por duda razonable.');
 
 -- resultado del juicio
 INSERT INTO RESULTADO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONRESUL, DESCRESUL)
@@ -164,7 +164,7 @@ VALUES ('PEN', 4, 00010, 6531, 0001, 'Como resultado de la etapa sentencia absol
 
 -- Documentos etapa juicio
 INSERT INTO DOCUMENTO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONDOC, UBICADOC)
-VALUES ('PEN', 4, 00010, 6531, 0001, 'WWW.JUZGADODECONOCIMIENTO.GOV.CO/JUICIO/EXP1235468529');
+VALUES ('PEN', 4, 00010, 6531, 0001, 'JUZG.CONOC.GOV.CO/JUICIO/EXP1235468529');
 
 
 -- ============================================
@@ -178,7 +178,7 @@ VALUES ('PEN', 5, 00010, 6532, 'JUCO', '1235468529', TO_DATE('15/12/2010', 'DD/M
 -- Sucesos de la quinta etapa del Caso(Sentencia):
 -- Se dicta sentencia
 INSERT INTO SUCESO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONSUCESO, DESCSUCESO)  
-VALUES ('PEN', 5, 00010, 6532, 0001, 'El juez dicta sentencia condenatoria, si se prueba el hurto más allá de toda duda razonable.');
+VALUES ('PEN', 5, 00010, 6532, 0001, 'Juez dicta sentencia condenatoria por hurto probado.');
 
 -- Resultado de la sentencia (Primera Instancia)
 INSERT INTO RESULTADO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONRESUL, DESCRESUL) 
@@ -186,7 +186,7 @@ VALUES ('PEN', 5, 00010, 6532, 0001, 'Sentencia condenatoria por hurto agravado'
 
 -- Documentos etapa sentencia
 INSERT INTO DOCUMENTO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONDOC, UBICADOC) 
-VALUES ('PEN', 5, 00010, 6532, 0001, 'WWW.JUZGADODECONOCIMIENTO.GOV.CO/SENTENCIA/EXP1235468529');
+VALUES ('PEN', 5, 00010, 6532, 0001, 'JUZG.CONOC.GOV.CO/SENTENCIA/EXP1235468529');
 
 
 -- ============================================
@@ -208,7 +208,7 @@ INSERT INTO EXPEDIENTE (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CODLU
 VALUES ('PEN', 6, 00010, 6533, 'JUPC', '1235468529', TO_DATE('16/12/2010', 'DD/MM/YYYY'));
 
 INSERT INTO SUCESO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONSUCESO, DESCSUCESO)
-VALUES ('PEN', 6, 00010, 6533, 0001, 'La sentencia inicial la dicta el Juez Penal del Circuito (juez de conocimiento).');
+VALUES ('PEN', 6, 00010, 6533, 0001, 'Sentencia inicial del Juez Penal del Circuito.');
 
 -- Resultado primera instancia
 INSERT INTO RESULTADO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONRESUL, DESCRESUL)
@@ -216,7 +216,7 @@ VALUES ('PEN', 6, 00010, 6533, 0001, 'Sentencia en primera instancia confirmada'
 
 -- Documentos primera instancia
 INSERT INTO DOCUMENTO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONDOC, UBICADOC)
-VALUES ('PEN', 6, 00010, 6533, 0001, 'WWW.JUZGADOPENALDELCIRCUITO.GOV.CO/SENTENCIA/EXP1235468529');
+VALUES ('PEN', 6, 00010, 6533, 0001, 'JUZG.PENALCIRC.GOV.CO/SENTENCIA/EXP1235468529');
 
 
 -- ============================================
@@ -226,13 +226,13 @@ VALUES ('PEN', 6, 00010, 6533, 0001, 'WWW.JUZGADOPENALDELCIRCUITO.GOV.CO/SENTENC
 -- Segunda instancia de la impugnacion Apelacion
 -- Se crea el tribunal superior del distrito judicial
 INSERT INTO LUGAR (CODLUGAR, IDTIPOLUGAR, LUG_CODLUGAR, NOMLUGAR, DIRELUGAR, TELLUGAR, EMAILLUGAR)
-VALUES ('TSDJ', 'TRIB', 'BOGOT', 'TRIBUNAL SUPERIOR DEL DISTRITO JUDICIAL', 'CL 60 #25', '5235600', 'TRIBUNALSUPERIORDISTRITOJUDICIAL@GMAIL.COM');
+VALUES ('TSDJ', 'TRIB', 'BOGOT', 'Tribunal Superior Dist. Judicial', 'CL 60 #25', '5235600', 'TRIBUNALSUPERIORDISTRITOJUDICIAL@GMAIL.COM');
 
 INSERT INTO EXPEDIENTE (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CODLUGAR, CEDULA, FECHAETAPA)
 VALUES ('PEN', 7, 00010, 6534, 'TSDJ', '1235468529', TO_DATE('20/12/2010', 'DD/MM/YYYY'));
 
 INSERT INTO SUCESO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONSUCESO, DESCSUCESO)
-VALUES ('PEN', 7, 00010, 6534, 0001, 'Si el abogado no está de acuerdo presenta recurso de apelación. El tribunal superior puede confirmar modificar o revocar la sentencia');
+VALUES ('PEN', 7, 00010, 6534, 0001, 'Defensa apela; tribunal puede confirmar, modificar o revocar.');
 
 -- Resultado segunda instancia
 INSERT INTO RESULTADO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONRESUL, DESCRESUL)
@@ -240,7 +240,7 @@ VALUES ('PEN', 7, 00010, 6534, 0001, 'El Tribunal Superior confirma la sentencia
 
 -- Documentos segunda instancia
 INSERT INTO DOCUMENTO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONDOC, UBICADOC)
-VALUES ('PEN', 7, 00010, 6534, 0001, 'WWW.TRIBUNALSUPERIORDISTRITOJUDICIAL.GOV.CO/APELACION/EXP1235468529');
+VALUES ('PEN', 7, 00010, 6534, 0001, 'TRIB.SUP.DIST.GOV.CO/APELACION/EXP1235468529');
 
 
 -- ============================================
@@ -256,7 +256,7 @@ INSERT INTO EXPEDIENTE (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CODLU
 VALUES ('PEN', 8, 00010, 6535, 'CSJ', '1235468529', TO_DATE('22/12/2010', 'DD/MM/YYYY'));
 
 INSERT INTO SUCESO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONSUCESO, DESCSUCESO)
-VALUES ('PEN', 8, 00010, 6535, 0001, 'Si persisten errores graves de derecho, el abogado puede interponer recurso extraordinario de casación ante la Corte Suprema');
+VALUES ('PEN', 8, 00010, 6535, 0001, 'Defensa interpone casación por errores graves de derecho.');
 
 -- Resultado tercera instancia
 INSERT INTO RESULTADO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONRESUL, DESCRESUL)
@@ -264,7 +264,7 @@ VALUES ('PEN', 8, 00010, 6535, 0001, 'La Corte Suprema casa la sentencia y orden
 
 -- Documentos tercera instancia
 INSERT INTO DOCUMENTO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONDOC, UBICADOC)
-VALUES ('PEN', 8, 00010, 6535, 0001, 'WWW.CORTESUPREMAJUSTICIA.GOV.CO/CASACION/EXP1235468529');
+VALUES ('PEN', 8, 00010, 6535, 0001, 'CSJ.GOV.CO/CASACION/EXP1235468529');
 
 
 -- ============================================
@@ -273,13 +273,13 @@ VALUES ('PEN', 8, 00010, 6535, 0001, 'WWW.CORTESUPREMAJUSTICIA.GOV.CO/CASACION/E
 
 --- Cuarta instancia de la impugnacion Revisión
 INSERT INTO LUGAR (CODLUGAR, IDTIPOLUGAR, LUG_CODLUGAR, NOMLUGAR, DIRELUGAR, TELLUGAR, EMAILLUGAR)
-VALUES ('CCJ', 'TRIB', 'BOGOT', 'CORTE CONSTITUCIONAL DE JUSTICIA', 'CL 80 #35', '5235620', 'CORTECONSTITUCIONALDEJUSTICIA@GMAIL.COM');
+VALUES ('CCJ', 'TRIB', 'BOGOT', 'Corte Constitucional Justicia', 'CL 80 #35', '5235620', 'CORTECONSTITUCIONALDEJUSTICIA@GMAIL.COM');
 
 INSERT INTO EXPEDIENTE (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CODLUGAR, CEDULA, FECHAETAPA)
 VALUES ('PEN', 9, 00010, 6536, 'CCJ', '1235468529', TO_DATE('24/12/2010', 'DD/MM/YYYY'));
 
 INSERT INTO SUCESO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONSUCESO, DESCSUCESO)
-VALUES ('PEN', 9, 00010, 6536, 0001, 'Si hubo vulneración de derechos fundamentales, el abogado presenta una acción de tutela. La Corte Constitucional puede revisar el caso si lo selecciona para estudio');
+VALUES ('PEN', 9, 00010, 6536, 0001, 'Se presenta tutela por derechos vulnerados; Corte revisa caso.');
 
 -- Resultado cuarta instancia
 INSERT INTO RESULTADO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONRESUL, DESCRESUL)
@@ -287,7 +287,7 @@ VALUES ('PEN', 9, 00010, 6536, 0001, 'La Corte Constitucional revisa el caso y p
 
 -- Documentos cuarta instancia
 INSERT INTO DOCUMENTO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONDOC, UBICADOC)
-VALUES ('PEN', 9, 00010, 6536, 0001, 'WWW.CORTECONSTITUCIONALDEJUSTICIA.GOV.CO/REVISION/EXP1235468529');
+VALUES ('PEN', 9, 00010, 6536, 0001, 'CCJ.GOV.CO/REVISION/EXP1235468529');
 
 
 -- ============================================
