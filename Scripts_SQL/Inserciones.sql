@@ -113,7 +113,7 @@ INSERT INTO ETAPAPROCESAL(CODETAPA, NOMETAPA)
 VALUES ('PRE','PRESENTACION');
 
 INSERT INTO ETAPAPROCESAL(CODETAPA, NOMETAPA)
-VALUES ('TRA', 'TRÁMITE URGENTE');
+VALUES ('TRA', 'TRAMITE URGENTE');
 
 INSERT INTO ETAPAPROCESAL(CODETAPA, NOMETAPA)
 VALUES ('FAL', 'FALLO');
@@ -122,25 +122,25 @@ VALUES ('FAL', 'FALLO');
 
 
 INSERT INTO IMPUGNACION(IDIMPUGNA, NOMIMPUGNA)
-VALUES ('RP', 'REPOSICIÓN');
+VALUES ('RP', 'REPOSICION');
 
 INSERT INTO IMPUGNACION(IDIMPUGNA, NOMIMPUGNA)
-VALUES ('AP', 'APELACIÓN');
+VALUES ('AP', 'APELACION');
 
 INSERT INTO IMPUGNACION(IDIMPUGNA, NOMIMPUGNA)
-VALUES ('CA', 'CASACIÓN');
+VALUES ('CA', 'CASACION');
 
 INSERT INTO IMPUGNACION(IDIMPUGNA, NOMIMPUGNA)
 VALUES ('RV', 'REVISION');
 
 INSERT INTO IMPUGNACION(IDIMPUGNA, NOMIMPUGNA)
-VALUES ('UJ', 'UNIFICACIÓN DE JURISPRUDENCIA');
+VALUES ('UJ', 'UNIFICACION DE JURISPRUDENCIA');
 
 INSERT INTO IMPUGNACION(IDIMPUGNA, NOMIMPUGNA)
 VALUES ('IM', 'IMPUGNACION DE TUTELA');
 
 INSERT INTO IMPUGNACION(IDIMPUGNA, NOMIMPUGNA)
-VALUES ('RC', 'REVISIÓN CONSTITUCIONAL');
+VALUES ('RC', 'REVISION CONSTITUCIONAL');
 
 --2.3 
 --Especia-etapa : Todos las Especializaciones 
@@ -162,8 +162,8 @@ VALUES (3);
 ---- Especia_etapa
 -- ============================================
 -- PENAL (PEN)
--- Etapas: Indagación → Imputación → Acusación → Juicio → Sentencia → Impugnación
--- Impugnaciones posibles: Reposición, apelación, casación, revisión
+-- Etapas: Indagacion -> Imputacion -> Acusacion -> Juicio -> Sentencia -> Impugnacion
+-- Impugnaciones posibles: Reposicion, apelacion, casacion, revision
 -- ============================================
 
 -- Primera instancia
@@ -197,8 +197,8 @@ VALUES ('PEN', 9, 3, 'IMP', 'RV');
 
 -- ============================================
 -- CIVIL (CIV)
--- Etapas: Demanda → Contestación → Audiencia → Pruebas → Sentencia → Impugnación
--- Impugnaciones posibles: Reposición, apelación, casación, revisión
+-- Etapas: Demanda -> Contestacion -> Audiencia -> Pruebas -> Sentencia -> Impugnacion
+-- Impugnaciones posibles: Reposicion, apelacion, casacion, revision
 -- ============================================
 
 -- Primera instancia
@@ -232,8 +232,8 @@ VALUES ('CIV', 9, 3, 'IMP', 'RV');
 
 -- ============================================
 -- LABORAL (LAB)
--- Etapas: Demanda → Audiencia → Pruebas → Sentencia → Impugnación
--- Impugnaciones posibles: Apelación, casación
+-- Etapas: Demanda -> Audiencia -> Pruebas -> Sentencia -> Impugnacion
+-- Impugnaciones posibles: Apelacion, casacion
 -- ============================================
 
 -- Primera instancia
@@ -258,8 +258,8 @@ VALUES ('LAB', 6, 3, 'IMP', 'CA');
 
 -- ============================================
 -- ADMINISTRATIVO (ADM)
--- Etapas: Demanda → Contestación → Pruebas → Sentencia → Impugnación
--- Impugnaciones posibles: Apelación, revisión, unificación de jurisprudencia
+-- Etapas: Demanda -> Contestacion -> Pruebas -> Sentencia -> Impugnacion
+-- Impugnaciones posibles: Apelacion, revision, unificacion de jurisprudencia
 -- ============================================
 
 -- Primera instancia
@@ -286,9 +286,9 @@ INSERT INTO ESPECIA_ETAPA (CODESPECIALIZACION, PASOETAPA, NINSTANCIA, CODETAPA, 
 VALUES ('ADM', 7, 3, 'IMP', 'UJ');
 
 -- ============================================
--- FAMILIA (FAM) - No está en tu tabla pero lo incluyo por completitud
--- Etapas: Demanda → Contestación → Audiencia → Pruebas → Sentencia → Impugnación
--- Impugnaciones posibles: Apelación, casación
+-- FAMILIA (FAM) - No esta en tu tabla pero lo incluyo por completitud
+-- Etapas: Demanda -> Contestacion -> Audiencia -> Pruebas -> Sentencia -> Impugnacion
+-- Impugnaciones posibles: Apelacion, casacion
 -- ============================================
 
 -- Primera instancia
@@ -316,8 +316,8 @@ VALUES ('FAM', 7, 3, 'IMP', 'CA');
 
 -- ============================================
 -- TUTELA (TUT)
--- Etapas: Presentación → Trámite urgente → Fallo → Impugnación
--- Impugnaciones posibles: Impugnación de tutela, revisión constitucional
+-- Etapas: Presentacion -> Tramite urgente -> Fallo -> Impugnacion
+-- Impugnaciones posibles: Impugnacion de tutela, revision constitucional
 -- ============================================
 
 -- Primera instancia
@@ -373,7 +373,7 @@ INSERT INTO ABOGADO (CEDULA, NOMBRE, APELLIDO, NTARJETAPROFESIONAL)
 VALUES ('6549873', 'DAVID', 'LOPEZ', '20042');
 
 
---2.5 Incluir 3 juzgados y 3 tribunales con la jerarquía de la ciudad. 
+--2.5 Incluir 3 juzgados y 3 tribunales con la jerarquia de la ciudad. 
 
 
 --Ciudades
@@ -418,7 +418,7 @@ INSERT INTO CLIENTE VALUES ('00010','CC', 'Juan','Perez','2512354');
 INSERT INTO ABOGADO (CEDULA, NOMBRE, APELLIDO, NTARJETAPROFESIONAL) 
 VALUES ('1235468529' ,'Harvey','Specter','62586');  
 
--- Especialización Penal en nuestro caso no se crea pues este ya existe en la base de datos, debido a que en el punto 2.3
+-- Especializacion Penal en nuestro caso no se crea pues este ya existe en la base de datos, debido a que en el punto 2.3
 -- se nos solicito crear varias especializaciones, en caso de que no existiera, se haria de la siguiente manera:
 -- INSERT INTO ESPECIALIZACION (CODESPECIALIZACION, NOMESPECIALIZACION) 
 -- VALUES ('PEN', 'PENAL');
@@ -428,7 +428,7 @@ INSERT INTO ESP___ABOGADO (CEDULA, CODESPECIALIZACION) VALUES ('1235468529', 'PE
 
 
 -- Se radica el caso:
--- Especialización Penal en nuestro caso no se crea pues este ya existe en la base de datos, debido a que en el punto 2.3
+-- Especializacion Penal en nuestro caso no se crea pues este ya existe en la base de datos, debido a que en el punto 2.3
 -- se nos solicito crear varias especializaciones, en caso de que no existiera, se haria de la siguiente manera:
 -- INSERT INTO ESPECIALIZACION (CODESPECIALIZACION, NOMESPECIALIZACION) 
 -- VALUES ('PEN', 'PENAL');
@@ -436,13 +436,13 @@ INSERT INTO ESP___ABOGADO (CEDULA, CODESPECIALIZACION) VALUES ('1235468529', 'PE
 INSERT INTO CASO (NOCASO, CODCLIENTE, CODESPECIALIZACION, FECHAINICIO, FECHAFIN, VALOR) 
 VALUES (00010, '00010', 'PEN', TO_DATE('01/12/2010', 'DD/MM/YYYY'), TO_DATE('24/12/2010', 'DD/MM/YYYY'), '100000000');
 
--- Cada caso al momento de ser radicado por parte del cliente, se le asigna un número de expediente que lo identifica:
+-- Cada caso al momento de ser radicado por parte del cliente, se le asigna un numero de expediente que lo identifica:
 --creacion del expediente inicial:
 -- el expediente requiere el codigo del lugar donde se lleva a cabo la etapa del caso, asi que agregamos el lugar:
 INSERT INTO TIPOLUGAR (IDTIPOLUGAR, DESCTIPOLUGAR) VALUES ('EJUD','Entidad Judicial');
 
 INSERT INTO LUGAR (CODLUGAR, IDTIPOLUGAR, LUG_CODLUGAR, NOMLUGAR, DIRELUGAR, TELLUGAR, EMAILLUGAR) 
-VALUES ('FGN', 'EJUD', 'BOGOT', 'Fiscalía General Nación', 'Ac. 24 #52-01', '018000912280', 'FiscaliaGeneral@entidadjudicialcolombia.com');
+VALUES ('FGN', 'EJUD', 'BOGOT', 'Fiscalia General Nacion', 'Ac. 24 #52-01', '018000912280', 'FiscaliaGeneral@entidadjudicialcolombia.com');
 
 -- ============================================
 -- ETAPA 1: INDAGACION
@@ -455,7 +455,7 @@ VALUES ('PEN', 1, 00010, 6528, 'FGN', '1235468529', TO_DATE('01/12/2010', 'DD/MM
 -- Sucesos de la primer etapa del Caso(Indagacion):
 -- procesos de la fiscalia general de la nacion
 INSERT INTO SUCESO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONSUCESO, DESCSUCESO)  
-VALUES ('PEN', 1, 00010, 6528, 0001, 'Fiscalía recopila pruebas y abre investigación.');
+VALUES ('PEN', 1, 00010, 6528, 0001, 'Fiscalia recopila pruebas y abre investigacion.');
 
 -- procesos del abogado defensor
 INSERT INTO SUCESO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONSUCESO, DESCSUCESO) 
@@ -463,7 +463,7 @@ VALUES ('PEN', 1, 00010, 6528, 0002, 'Defensor asesora, solicita pruebas y verif
 
 --resultado de la indagacion
 INSERT INTO RESULTADO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONRESUL, DESCRESUL) 
-VALUES ('PEN', 1, 00010, 6528, 0001, 'El resultado de la etapa es la apertura investigación');
+VALUES ('PEN', 1, 00010, 6528, 0001, 'El resultado de la etapa es la apertura investigacion');
 
 --Documentos etapa indagacion
 INSERT INTO DOCUMENTO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONDOC, UBICADOC) 
@@ -490,7 +490,7 @@ VALUES ('PEN', 2, 00010, 6529, 0001, 'Fiscal imputa hurto agravado ante juez de 
 
 -- procesos del abogado defensor
 INSERT INTO SUCESO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONSUCESO, DESCSUCESO)
-VALUES ('PEN', 2, 00010, 6529, 0002, 'Defensa acompaña y se opone por falta de pruebas.');
+VALUES ('PEN', 2, 00010, 6529, 0002, 'Defensa acompana y se opone por falta de pruebas.');
 
 --resultado de la imputacion de cargos
 INSERT INTO RESULTADO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONRESUL, DESCRESUL)
@@ -517,7 +517,7 @@ VALUES ('PEN', 3, 00010, 6530, 'JUCO', '1235468529', TO_DATE('05/12/2010', 'DD/M
 -- Sucesos de la tercera etapa del Caso(Acusacion):
 -- procesos entidad judicial
 INSERT INTO SUCESO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONSUCESO, DESCSUCESO)
-VALUES ('PEN', 3, 00010, 6530, 0001, 'Fiscal presenta acusación y anuncia pruebas para juicio');
+VALUES ('PEN', 3, 00010, 6530, 0001, 'Fiscal presenta acusacion y anuncia pruebas para juicio');
 
 -- procesos del abogado defensor
 INSERT INTO SUCESO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONSUCESO, DESCSUCESO)
@@ -533,11 +533,11 @@ VALUES ('PEN', 3, 00010, 6530, 0004, 'Juez define pruebas a practicar en juicio.
 
 -- abogado defensor
 INSERT INTO SUCESO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONSUCESO, DESCSUCESO)
-VALUES ('PEN', 3, 00010, 6530, 0005, 'Defensa solicita testigos y exclusión de pruebas ilegales.');
+VALUES ('PEN', 3, 00010, 6530, 0005, 'Defensa solicita testigos y exclusion de pruebas ilegales.');
 
 --resultado de la acusacion
 INSERT INTO RESULTADO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONRESUL, DESCRESUL)
-VALUES ('PEN', 3, 00010, 6530, 0001, 'Se admite la acusación y se fijan las pruebas que se practicarán en el juicio');
+VALUES ('PEN', 3, 00010, 6530, 0001, 'Se admite la acusacion y se fijan las pruebas que se practicaran en el juicio');
 
 -- Documentos etapa acusacion
 INSERT INTO DOCUMENTO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONDOC, UBICADOC)
@@ -561,11 +561,11 @@ VALUES ('PEN', 4, 00010, 6531, 0001, 'Se practican pruebas, testigos y alegatos;
 
 -- abogado defensor
 INSERT INTO SUCESO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONSUCESO, DESCSUCESO)
-VALUES ('PEN', 4, 00010, 6531, 0002, 'Defensa interroga y pide absolución por duda razonable.');
+VALUES ('PEN', 4, 00010, 6531, 0002, 'Defensa interroga y pide absolucion por duda razonable.');
 
 -- resultado del juicio
 INSERT INTO RESULTADO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONRESUL, DESCRESUL)
-VALUES ('PEN', 4, 00010, 6531, 0001, 'Como resultado de la etapa sentencia absolutoria, si no se demuestra la culpabilidad o sentencia condenatoria, si se prueba el hurto más allá de toda duda razonable');
+VALUES ('PEN', 4, 00010, 6531, 0001, 'Como resultado de la etapa sentencia absolutoria, si no se demuestra la culpabilidad o sentencia condenatoria, si se prueba el hurto mas alla de toda duda razonable');
 
 -- Documentos etapa juicio
 INSERT INTO DOCUMENTO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONDOC, UBICADOC)
@@ -652,7 +652,7 @@ VALUES ('PEN', 7, 00010, 6534, 0001, 'TRIB.SUP.DIST.GOV.CO/APELACION/EXP12354685
 -- TERCERA INSTANCIA - CASACION
 -- ============================================
 
--- Tercera instancia de la impugnacion Casación
+-- Tercera instancia de la impugnacion Casacion
 -- Se crea la corte suprema de justicia
 INSERT INTO LUGAR (CODLUGAR, IDTIPOLUGAR, LUG_CODLUGAR, NOMLUGAR, DIRELUGAR, TELLUGAR, EMAILLUGAR)
 VALUES ('CSJ', 'TRIB', 'BOGOT', 'CORTE SUPREMA DE JUSTICIA', 'CL 70 #30', '5235610', 'CORTESUPREMAJUSTICIA@GMAIL.COM');
@@ -661,7 +661,7 @@ INSERT INTO EXPEDIENTE (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CODLU
 VALUES ('PEN', 8, 00010, 6535, 'CSJ', '1235468529', TO_DATE('22/12/2010', 'DD/MM/YYYY'));
 
 INSERT INTO SUCESO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONSUCESO, DESCSUCESO)
-VALUES ('PEN', 8, 00010, 6535, 0001, 'Defensa interpone casación por errores graves de derecho.');
+VALUES ('PEN', 8, 00010, 6535, 0001, 'Defensa interpone casacion por errores graves de derecho.');
 
 -- Resultado tercera instancia
 INSERT INTO RESULTADO (CODESPECIALIZACION, PASOETAPA, NOCASO, CONSECEXPE, CONRESUL, DESCRESUL)
@@ -676,7 +676,7 @@ VALUES ('PEN', 8, 00010, 6535, 0001, 'CSJ.GOV.CO/CASACION/EXP1235468529');
 -- CUARTA INSTANCIA - REVISION CONSTITUCIONAL
 -- ============================================
 
---- Cuarta instancia de la impugnacion Revisión
+--- Cuarta instancia de la impugnacion Revision
 INSERT INTO LUGAR (CODLUGAR, IDTIPOLUGAR, LUG_CODLUGAR, NOMLUGAR, DIRELUGAR, TELLUGAR, EMAILLUGAR)
 VALUES ('CCJ', 'TRIB', 'BOGOT', 'Corte Constitucional Justicia', 'CL 80 #35', '5235620', 'CORTECONSTITUCIONALDEJUSTICIA@GMAIL.COM');
 
@@ -707,7 +707,7 @@ INSERT INTO CONTACTO (CODCLIENTE, CONSECONTACTO, IDTIPOCONTA, VALORCONTACTO, NOT
 VALUES ('00010', 0002, 'EMA', 'juan.perez@email.com', 1);
 
 INSERT INTO CONTACTO (CODCLIENTE, CONSECONTACTO, IDTIPOCONTA, VALORCONTACTO, NOTIFICACION)
-VALUES ('00010', 0003, 'DIR', 'Calle 45 #12-34, Bogotá', 1);
+VALUES ('00010', 0003, 'DIR', 'Calle 45 #12-34, Bogota', 1);
 
 -- Pagos del caso (CORREGIDO: eliminado CODCLIENTE que no existe, agregado NTARJETA)
 INSERT INTO PAGO (CONSECPAGO, NOCASO, IDFORMAPAGO, CODFRANQUICIA, FECHAPAGO, VALORPAGO, NTARJETA)
